@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.generics import ListAPIView
-
+from rest_framework.permissions import IsAuthenticated
 from chaotix_main import signals
 from .models import TextToImageAI
 from chaotix.utils.helper import describe_exception
@@ -10,11 +10,12 @@ from django.core.exceptions import *
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter
 from .serializers import TextToImageAISerializer
+from rest_framework.authentication import TokenAuthentication
 
 
 # Create your views here.
 class TestEndpoint(APIView):
-    permission_classes = []  # disables permission
+    authentication_classes = []  # disables permission
 
     def get(self, request):
         try:
@@ -24,7 +25,8 @@ class TestEndpoint(APIView):
 
 
 class TextToImageGenerator(APIView):
-    permission_classes = []  # disables permission
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
 
     def post(self, request):
         try:
@@ -73,8 +75,8 @@ class TextToImageGenerator(APIView):
 
 
 class TextToImageList(ListAPIView):
-    authentication_classes = []
-    permission_classes = []
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
     serializer_class = TextToImageAISerializer
     filter_backends = [DjangoFilterBackend, SearchFilter]
     filterset_fields = ["id", "img_text"]
