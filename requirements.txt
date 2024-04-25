@@ -34,7 +34,6 @@ parso==0.8.4
 pathspec==0.12.1
 pexpect==4.9.0
 pickleshare==0.7.5
-pillow==10.3.0
 platformdirs==4.2.1
 prompt-toolkit==3.0.43
 ptyprocess==0.7.0
