@@ -1,27 +1,36 @@
-# Django Celery Stability AI Image Generator
+Clone the GitHub Repository:
+git clone https://github.com/hitenn400/chaotix
 
-This Django application integrates with the Stability AI API to generate images based on predefined or dynamically provided text using Celery for asynchronous task management.
+Create .env File:
 
-## Setup
+Create a .env file in the project directory and add the necessary credentials.
 
-1. **Clone the repository:**
-git clone https://github.com/hitenn400/chaotix.git
+Navigate to Project Directory:
+cd chaotix
 
-2. **Install dependencies:**
-create virtual env and install all dependencies
+Create Conda Environment:
+conda create --name chaotix python=3.8
 
-3. **Configure Django:**
+Activate Conda Environment:
+conda activate chaotix
 
-- Set up your Django settings, including database configuration, API authentication details, and any other necessary settings. Ensure you have your Stability AI API credentials configured properly.
+Install Dependencies:
+pip install -r requirements.txt
 
-4. **Configure Celery:**
-- run redis :
-- redis-server
-- run celery command :
-- celery -A chaotix worker --loglevel=info
+Install Pillow Independently:
+pip install pillow==10.3.0
 
-5. **Run migrations:**
-6. python3 manage.py makemigrations
-7. command : python3 manage.py migrate
-8. run server
-9. python3 manage.py runserver
+Make Migrations:
+python manage.py makemigrations
+
+Migrate Database:
+python manage.py migrate
+
+Run Redis Server (in a new terminal):
+redis-server
+
+Run Celery Worker (in a new terminal):
+celery -A chaotix worker --loglevel=info
+
+Run Server:
+python manage.py runserver
