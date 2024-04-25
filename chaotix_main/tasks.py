@@ -1,12 +1,12 @@
 from pathlib import Path
-import tempfile
 from chaotix.utils.img_uploader import upload_img
 from integrations.stabilityAI.stabilityAI_wrapper import *
 
-# from config import celery_app
+from celery import shared_task
 
 
-# @celery_app.task()
+@shared_task(bind=True)
+@celery_app
 def image_generator_task(text_to_img_id):
     try:
         stability_wrapper = StabilityAIWrapper(mode="PROD")

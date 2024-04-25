@@ -3,7 +3,6 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.generics import ListAPIView
 from rest_framework.permissions import IsAuthenticated
-from chaotix_main import signals
 from .models import TextToImageAI
 from chaotix.utils.helper import describe_exception
 from django.core.exceptions import *
@@ -11,6 +10,8 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter
 from .serializers import TextToImageAISerializer
 from rest_framework.authentication import TokenAuthentication
+
+from chaotix_main import signals
 
 
 # Create your views here.
@@ -52,7 +53,9 @@ class TextToImageGenerator(APIView):
                 text_to_image_obj = TextToImageAI.objects.create(
                     img_text=text, display_img_text=text, meta_info=meta_info
                 )
-                signals.image_generator_signal(text_to_img_id=text_to_image_obj.id)
+                signals.image_generator_signal.send(
+                    sender=None, text_to_img_id=text_to_image_obj.id
+                )
 
             response_dict = {
                 "custom_status_code": 0,
