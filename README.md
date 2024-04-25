@@ -1,4 +1,4 @@
-# Django Celery Stability AI Image Generator
+# Stability AI Image Generator Integration
 
 This Django application integrates with the Stability AI API to generate images based on predefined or dynamically provided text using Celery for asynchronous task management.
 
