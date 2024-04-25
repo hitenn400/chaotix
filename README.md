@@ -21,7 +21,7 @@ create virtual env and install all dependicies
 - celery -A chaotix worker --loglevel=info
 
 5. **Run migrations:**
-6. 
+6. python3 manage.py makemigrations
 7. command : python3 manage.py migrate
 8. run server
 9. python3 manage.py runserver
