@@ -8,7 +8,7 @@ This Django application integrates with the Stability AI API to generate images 
 git clone https://github.com/hitenn400/chaotix.git
 
 2. **Install dependencies:**
-create virtual env and install all dependicies
+create virtual env and install all dependencies
 
 3. **Configure Django:**
 
