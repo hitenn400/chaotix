@@ -16,8 +16,6 @@ print("BASE_REDIS_URL: ", BASE_REDIS_URL)
 app = Celery("chaotix")
 
 
-
-
 app.conf.enable_utc = False
 app.conf.update(timezone="Asia/Kolkata")
 

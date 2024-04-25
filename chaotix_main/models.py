@@ -4,8 +4,10 @@ from django_extensions.db.models import TimeStampedModel
 from shortuuid.django_fields import ShortUUIDField
 
 from .model_helpers import TextToImageAIMixin
+
+
 # Create your models here.
-class TextToImageAI(TextToImageAIMixin,TimeStampedModel, models.Model):
+class TextToImageAI(TextToImageAIMixin, TimeStampedModel, models.Model):
     id = ShortUUIDField(
         length=8,
         alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ",
@@ -16,6 +18,7 @@ class TextToImageAI(TextToImageAIMixin,TimeStampedModel, models.Model):
     display_img_text = models.TextField()
     img_url = models.JSONField(default={}, blank=True, null=True)
     meta_info = models.JSONField(default={}, blank=True, null=True)
+
     class Meta:
         db_table = "text_to_image_ai"
         get_latest_by = "modified"

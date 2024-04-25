@@ -6,14 +6,14 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('chaotix_main', '0002_alter_texttoimageai_payload'),
+        ("chaotix_main", "0002_alter_texttoimageai_payload"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='texttoimageai',
-            name='display_img_text',
-            field=models.TextField(default='a'),
+            model_name="texttoimageai",
+            name="display_img_text",
+            field=models.TextField(default="a"),
             preserve_default=False,
         ),
     ]

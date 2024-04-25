@@ -6,12 +6,12 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('chaotix_main', '0003_texttoimageai_display_img_text'),
+        ("chaotix_main", "0003_texttoimageai_display_img_text"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='texttoimageai',
-            name='payload',
+            model_name="texttoimageai",
+            name="payload",
         ),
     ]

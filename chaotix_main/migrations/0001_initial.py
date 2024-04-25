@@ -10,24 +10,44 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='TextToImageAI',
+            name="TextToImageAI",
             fields=[
-                ('created', django_extensions.db.fields.CreationDateTimeField(auto_now_add=True, verbose_name='created')),
-                ('modified', django_extensions.db.fields.ModificationDateTimeField(auto_now=True, verbose_name='modified')),
-                ('id', shortuuid.django_fields.ShortUUIDField(alphabet='ABCDEFGHIJKLMNOPQRSTUVWXYZ', editable=False, length=8, max_length=8, prefix='', primary_key=True, serialize=False)),
-                ('img_text', models.TextField()),
-                ('img_url', models.JSONField(blank=True, default={}, null=True)),
-                ('meta_info', models.JSONField(blank=True, default={}, null=True)),
-                ('payload', models.JSONField(blank=True, default={}, null=True)),
+                (
+                    "created",
+                    django_extensions.db.fields.CreationDateTimeField(
+                        auto_now_add=True, verbose_name="created"
+                    ),
+                ),
+                (
+                    "modified",
+                    django_extensions.db.fields.ModificationDateTimeField(
+                        auto_now=True, verbose_name="modified"
+                    ),
+                ),
+                (
+                    "id",
+                    shortuuid.django_fields.ShortUUIDField(
+                        alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                        editable=False,
+                        length=8,
+                        max_length=8,
+                        prefix="",
+                        primary_key=True,
+                        serialize=False,
+                    ),
+                ),
+                ("img_text", models.TextField()),
+                ("img_url", models.JSONField(blank=True, default={}, null=True)),
+                ("meta_info", models.JSONField(blank=True, default={}, null=True)),
+                ("payload", models.JSONField(blank=True, default={}, null=True)),
             ],
             options={
-                'db_table': 'text_to_image_ai',
-                'get_latest_by': 'modified',
+                "db_table": "text_to_image_ai",
+                "get_latest_by": "modified",
             },
             bases=(chaotix_main.model_helpers.TextToImageAIMixin, models.Model),
         ),

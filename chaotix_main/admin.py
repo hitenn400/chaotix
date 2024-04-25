@@ -1,6 +1,8 @@
 from django.contrib import admin
 from .models import *
+
 # Register your models here.
+
 
 @admin.register(TextToImageAI)
 class TextToImageAI(admin.ModelAdmin):
@@ -11,4 +13,3 @@ class TextToImageAI(admin.ModelAdmin):
         "img_url",
     )
     list_filter = ("img_text", "id")
-
