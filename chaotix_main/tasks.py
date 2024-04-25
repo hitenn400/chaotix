@@ -2,13 +2,15 @@ from pathlib import Path
 from chaotix.utils.img_uploader import upload_img
 from integrations.stabilityAI.stabilityAI_wrapper import *
 
-from celery import shared_task
+# from celery import shared_task
+from chaotix.celery_app import app as celery_app
 
 
-@shared_task(bind=True)
-@celery_app
+# @shared_task(bind=True)
+@celery_app.task()
 def image_generator_task(text_to_img_id):
     try:
+        print("inside image_generator_task")
         stability_wrapper = StabilityAIWrapper(mode="PROD")
         response = stability_wrapper.generate_image_from_text(
             image_text_ai_id=text_to_img_id
@@ -19,7 +21,7 @@ def image_generator_task(text_to_img_id):
             filename=f"{text_to_img_id}.png",
         )
         if res:
-            return upload_img(file_path=path, id=text_to_img_id)
-        return False
+            flag = upload_img(file_path=path, id=text_to_img_id)
+        print("completing")
     except Exception as e:
         print("Exception occured in image_generator_task: ", str(e))
