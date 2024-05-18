@@ -15,7 +15,7 @@ git clone https://github.com/hitenn400/text_to_image_ai
 cd chaotix
 
 ## Create Conda Environment:
-conda create --name chaotix python=3.8
+conda create --name text_to_image python=3.8
 
 ## Activate Conda Environment:
 conda activate chaotix
@@ -36,7 +36,7 @@ python manage.py migrate
 redis-server
 
 ## Run Celery Worker (in a new terminal):
-celery -A chaotix worker --loglevel=info
+celery -A text_to_image worker --loglevel=info
 
 ## Run Server:
 python manage.py runserver
