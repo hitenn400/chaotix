@@ -18,7 +18,7 @@ cd chaotix
 conda create --name text_to_image python=3.8
 
 ## Activate Conda Environment:
-conda activate chaotix
+conda activate text_to_image
 
 ## Install Dependencies:
 pip install -r requirements.txt
@@ -36,7 +36,7 @@ python manage.py migrate
 redis-server
 
 ## Run Celery Worker (in a new terminal):
-celery -A text_to_image worker --loglevel=info
+celery -A textImage worker --loglevel=info
 
 ## Run Server:
 python manage.py runserver
