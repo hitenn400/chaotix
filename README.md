@@ -36,7 +36,7 @@ python manage.py migrate
 redis-server
 
 ## Run Celery Worker (in a new terminal):
-celery -A text_to_image worker --loglevel=info
+celery -A textImage worker --loglevel=info
 
 ## Run Server:
 python manage.py runserver
