@@ -5,7 +5,7 @@ This Django application integrates with the Stability AI API to generate images 
 ## Setup
 
 ## Clone the GitHub Repository:
-git clone https://github.com/hitenn400/chaotix
+git clone https://github.com/hitenn400/text_to_image_ai
 
 ## Create .env File:
 
