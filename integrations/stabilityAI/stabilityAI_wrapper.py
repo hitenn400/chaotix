@@ -1,8 +1,8 @@
 import os
-from chaotix_main.models import TextToImageAI
+from textImagemain.models import TextToImageAI
 from .stabilityAI_main import StabilityAI, StabilityAIException
 from dotenv import load_dotenv
-from chaotix.utils.image_converter import base64_to_image_and_save
+from textImage.utils.image_converter import base64_to_image_and_save
 
 load_dotenv()
 

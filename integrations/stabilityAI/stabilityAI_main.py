@@ -3,7 +3,7 @@ import json
 import os
 
 import requests
-from chaotix.utils.helper import describe_exception
+from textImage.utils.helper import describe_exception
 from dotenv import load_dotenv
 
 load_dotenv()
